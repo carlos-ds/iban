@@ -1,0 +1,28 @@
+#generate {
+  background-color: #719ece;
+  padding: 5rem 0;
+  border-bottom: 1px solid grey;
+}
+button {
+  text-transform: uppercase;
+  margin-bottom: 4rem;
+  font-family: "Bebas Neue", cursive;
+  font-size: 2rem;
+  background: #e3f2fd;
+  padding: 1rem;
+}
+#result {
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  font-size: 2rem;
+  margin-bottom: 4rem;
+  font-family: "Bebas Neue", cursive;
+}
+
+#previous {
+  font-size: 1.25rem;
+
+  p {
+    margin-bottom: 2rem;
+  }
+}

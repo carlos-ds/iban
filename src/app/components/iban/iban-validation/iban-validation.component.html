@@ -1,0 +1,37 @@
+<section id="validate">
+  <div class="container">
+    <h2 style="font-family: 'Bebas Neue', cursive">Validate a Belgian IBAN</h2>
+    <form>
+      <input
+        type="text"
+        (focus)="onFocus()"
+        (focusout)="onFocusOut()"
+        [(ngModel)]="ibanToValidate"
+        name="ibanToValidate"
+        (input)="handleChange($event)"
+        maxlength="16"
+        autocomplete="off"
+      />
+    </form>
+    <div *ngIf="ibanToValidate.length > 0">
+      Current length: {{ ibanToValidate.length }}
+    </div>
+    <div id="validation-result" [class.hidden]="!showValidationResult">
+      <ul>
+        <li data-valid="false">
+          The account number should have 16 characters (excluding whitespace).
+        </li>
+        <li data-valid="false">The account number should start with "BE".</li>
+        <li data-valid="false">
+          The account number should end with 14 numbers.
+        </li>
+        <li data-valid="false">
+          The account number should have a valid BBAN checksum.
+        </li>
+        <li data-valid="false">
+          The account number should have a valid IBAN checksum.
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>

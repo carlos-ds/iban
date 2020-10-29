@@ -3,16 +3,36 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { NavigationComponent } from './components/navigation/navigation.component';
+import { IbanComponent } from './components/iban/iban.component';
+import { IbanValidationComponent } from './components/iban/iban-validation/iban-validation.component';
+import { IbanGenerationComponent } from './components/iban/iban-generation/iban-generation.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+
+import { IbanService } from './services/iban.service';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavigationComponent,
+    IbanComponent,
+    IbanValidationComponent,
+    IbanGenerationComponent,
+    PageNotFoundComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    CommonModule,
+    HttpClientModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [IbanService],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

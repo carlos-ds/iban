@@ -1,0 +1,36 @@
+#validate {
+  background-color: #ffffff;
+  padding: 5rem 0;
+  border-bottom: 1px solid grey;
+}
+input {
+  padding-left: 1rem;
+  margin-top: 2rem;
+  letter-spacing: 5px;
+  height: 3rem;
+  width: 80%;
+  font-size: 1.5rem;
+  border-radius: 10px;
+}
+input:focus {
+  outline: none !important;
+  border-color: #719ece;
+  box-shadow: 0 0 10px red;
+}
+#validation-result ul {
+  font-size: 1.2rem;
+  margin-top: 2rem;
+  padding: 0;
+  display: inline-block;
+  text-align: left;
+  list-style: none;
+}
+#validation-result ul li[data-valid="true"]:before {
+  content: "✓ ";
+  color: green;
+}
+
+#validation-result ul li[data-valid="false"]:before {
+  content: "x ";
+  color: red;
+}
