@@ -1,11 +1,11 @@
 <section id="generate">
   <div class="container">
-    <button>Generate a random Belgian IBAN</button>
-    <div id="result">BE__ ____ ____ ____</div>
+    <button (click)="generateIban()">Generate a random Belgian IBAN</button>
+    <div id="result" [textContent]="result"></div>
     <div id="previous">
       <p>The previous 5 generated IBAN's on this site were:</p>
       <ul>
-        <li *ngFor="let iban of previousIban">{{ iban.value }}</li>
+        <li *ngFor="let iban of previousIbans">{{ iban.value }}</li>
       </ul>
     </div>
   </div>

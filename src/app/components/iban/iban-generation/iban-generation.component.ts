@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Iban } from '../../../models/iban.model';
+import { IbanService } from '../../../services/iban.service';
 
 @Component({
   selector: 'iban-generation',
@@ -7,10 +8,23 @@ import { Iban } from '../../../models/iban.model';
   styleUrls: ['./iban-generation.component.scss'],
 })
 export class IbanGenerationComponent implements OnInit {
-  @Input()
-  previousIban: Iban[];
+  previousIbans: Iban[];
+  result: string;
 
-  constructor() {}
+  constructor(private ibanService: IbanService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.result = 'BE__ ____ ____ ____';
+
+    this.ibanService.getIban().subscribe((iban) => {
+      this.previousIbans = iban;
+    });
+  }
+
+  generateIban() {
+    this.ibanService.createIban().subscribe((iban) => {
+      this.previousIbans = iban;
+      this.result = iban[0].value;
+    });
+  }
 }
