@@ -1,13 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-
-export interface ValidationResult {
-  has16Characters: boolean;
-  startsWithBelgianPrefix: boolean;
-  endsWithNumbers: boolean;
-  hasValidBbanChecksum: boolean;
-  hasValidIbanChecksum: boolean;
-}
+import { IbanService } from 'src/app/services/iban.service';
+import { ValidationResult } from '../../../models/iban.model';
 
 @Component({
   selector: 'iban-validation',
@@ -16,22 +10,22 @@ export interface ValidationResult {
 })
 export class IbanValidationComponent implements OnInit {
   showValidationResult: boolean;
-  ibanToValidate: string;
+  accountNumberToValidate: string;
   validationResult: ValidationResult;
 
-  constructor() {
-    this.ibanToValidate = '';
+  constructor(private ibanService: IbanService) {
+    this.accountNumberToValidate = '';
     this.showValidationResult = true;
     this.validationResult = {} as ValidationResult;
   }
 
   handleChange(event: any) {
-    this.ibanToValidate = event.target.value;
+    const accountNumber = event.target.value;
 
-    if (this.ibanToValidate.substr(0, 2) === 'BE') {
+    if (this.accountNumberToValidate.substr(0, 2) === 'BE') {
       this.validationResult.startsWithBelgianPrefix = true;
     }
-    if (this.ibanToValidate.length === 16) {
+    if (this.accountNumberToValidate.length === 16) {
       this.validationResult.has16Characters = true;
     }
   }
@@ -41,7 +35,7 @@ export class IbanValidationComponent implements OnInit {
   }
 
   onFocusOut() {
-    if (this.ibanToValidate.length === 0) {
+    if (this.accountNumberToValidate.length === 0) {
       this.showValidationResult = false;
     }
   }

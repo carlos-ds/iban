@@ -6,15 +6,15 @@
         type="text"
         (focus)="onFocus()"
         (focusout)="onFocusOut()"
-        [(ngModel)]="ibanToValidate"
-        name="ibanToValidate"
+        [(ngModel)]="accountNumberToValidate"
+        name="accountNumberToValidate"
         (input)="handleChange($event)"
         maxlength="16"
         autocomplete="off"
       />
     </form>
-    <div *ngIf="ibanToValidate.length > 0">
-      Current length: {{ ibanToValidate.length }}
+    <div *ngIf="accountNumberToValidate.length > 0">
+      Current length: {{ accountNumberToValidate.length }}
     </div>
     <div id="validation-result" [class.hidden]="!showValidationResult">
       <ul>
