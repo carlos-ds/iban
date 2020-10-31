@@ -8,8 +8,17 @@ button {
   margin-bottom: 4rem;
   font-family: "Bebas Neue", cursive;
   font-size: 2rem;
-  background: #e3f2fd;
+  box-shadow: 2.5px 5px;
+  background: #9de46e;
   padding: 1rem;
+}
+button:hover {
+  opacity: 0.9;
+  box-shadow: 5px 10px;
+  transition: 1s;
+}
+button:focus {
+  outline: none;
 }
 #result {
   text-transform: uppercase;
