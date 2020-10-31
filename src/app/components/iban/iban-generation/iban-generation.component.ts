@@ -16,14 +16,14 @@ export class IbanGenerationComponent implements OnInit {
   ngOnInit(): void {
     this.result = 'BE__ ____ ____ ____';
 
-    this.ibanService.getIban().subscribe((iban) => {
+    this.ibanService.get().subscribe((iban) => {
       this.previousIbans = iban;
     });
   }
 
   generateIban() {
-    this.ibanService.createIban().subscribe((iban) => {
-      this.previousIbans = iban;
+    this.ibanService.create().subscribe((iban) => {
+      this.previousIbans = [...iban];
       this.result = iban[0].value;
     });
   }
