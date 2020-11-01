@@ -11,4 +11,5 @@ export interface ValidationResult {
   startsWithBelgianPrefix: boolean;
   endsWithNumbers: boolean;
   hasValidBbanChecksum: boolean;
+  hasValidIbanChecksum: boolean;
 }
