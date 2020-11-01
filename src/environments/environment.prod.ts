@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'http://localhost:3306',
+  apiUrl: 'https://iban-node.herokuapp.com',
 };
