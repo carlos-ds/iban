@@ -1,11 +1,18 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpResponse } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
-
 import { Iban, ValidationResult } from '../models/iban.model';
+import { environment } from '../../environments/environment';
 
-const API: string = 'http://localhost:3306';
+const httpHeaders = new HttpHeaders({
+  'Content-Type': 'application/json',
+});
+
+const options = {
+  headers: httpHeaders,
+};
+
 const numberOfPreviousIbans: number = 5;
 
 @Injectable()
@@ -28,16 +35,20 @@ export class IbanService {
   }
 
   get(): Observable<Iban[]> {
-    return this.http.get<Iban[]>(API + '/?limit=' + numberOfPreviousIbans);
+    return this.http.get<Iban[]>(
+      environment.apiUrl + '/?limit=' + numberOfPreviousIbans
+    );
   }
 
   create(): Observable<Iban[]> {
-    return this.http.get<Iban[]>(API + '/create');
+    return this.http.get<Iban[]>(environment.apiUrl + '/create');
   }
 
-  validate(accountNumber: string): Observable<any> {
-    return this.http
-      .post(API + '/validate', { accountNumber })
-      .pipe(catchError(this.handleError('validateIban')));
+  validate(accountNumber): Observable<ValidationResult> {
+    return this.http.post<ValidationResult>(
+      `${environment.apiUrl}/validate`,
+      JSON.stringify(accountNumber),
+      options
+    );
   }
 }
