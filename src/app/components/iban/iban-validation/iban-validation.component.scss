@@ -3,6 +3,7 @@
   padding: 5rem 0;
   border-bottom: 1px solid grey;
 }
+
 input {
   padding-left: 1rem;
   margin-top: 2rem;
@@ -12,11 +13,19 @@ input {
   font-size: 1.5rem;
   border-radius: 10px;
 }
+
 input:focus {
   outline: none !important;
   border-color: #719ece;
-  box-shadow: 0 0 10px red;
 }
+
+input[data-valid="true"] {
+  box-shadow: 0 0 5px green;
+}
+input[data-valid="false"] {
+  box-shadow: 0 0 5px red;
+}
+
 #validation-result ul {
   font-size: 1.2rem;
   margin-top: 2rem;
