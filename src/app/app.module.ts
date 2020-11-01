@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavigationComponent } from './components/navigation/navigation.component';
 import { IbanComponent } from './components/iban/iban.component';
 import { IbanValidationComponent } from './components/iban/iban-validation/iban-validation.component';
 import { IbanGenerationComponent } from './components/iban/iban-generation/iban-generation.component';
@@ -18,7 +17,6 @@ import { IbanService } from './services/iban.service';
 @NgModule({
   declarations: [
     AppComponent,
-    NavigationComponent,
     IbanComponent,
     IbanValidationComponent,
     IbanGenerationComponent,
