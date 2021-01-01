@@ -13,6 +13,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 
 import { IbanService } from './services/iban.service';
+import { LengthExcludingWhitespacePipe } from './pipes/length-excluding-whitespaces.pipe';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { IbanService } from './services/iban.service';
     IbanGenerationComponent,
     PageNotFoundComponent,
     FooterComponent,
+    LengthExcludingWhitespacePipe,
   ],
   imports: [
     BrowserModule,

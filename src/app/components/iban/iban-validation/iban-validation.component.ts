@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IbanService } from 'src/app/services/iban.service';
 import { ValidationResult } from '../../../models/iban.model';
+import { LengthExcludingWhitespacePipe } from '../../../pipes/length-excluding-whitespaces.pipe';
 
 @Component({
   selector: 'iban-validation',

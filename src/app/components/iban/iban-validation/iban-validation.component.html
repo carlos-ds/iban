@@ -22,7 +22,8 @@
       />
     </form>
     <div *ngIf="accountNumberToValidate.length > 0">
-      Current length: {{ accountNumberToValidate.length }}
+      Current length:
+      {{ accountNumberToValidate | lengthExcludingWhitespace }}
     </div>
     <div id="validation-result">
       <ul>
