@@ -1,27 +1,7 @@
-# Iban
+This application runs on [https://iban-generator.be/](https://iban-generator.be/). It allows you to validate and generate (random) Belgian bank account numbers in International Bank Account Number (IBAN) format.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.3.
+The repository for the back-end application can be found [here](https://github.com/carlos-ds/iban-node).
 
-## Development server
+## Disclaimer
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+This app was made for testing purposes only. Generation and validation of an account number are purely based on the logic described on [Wikipedia](https://en.wikipedia.org/wiki/International_Bank_Account_Number).
