@@ -1,6 +1,8 @@
 <section id="validate">
   <div class="container">
-    <h2 style="font-family: 'Bebas Neue', cursive">Validate a Belgian IBAN</h2>
+    <h2 i18n style="font-family: 'Bebas Neue', cursive">
+      Validate a Belgian IBAN
+    </h2>
     <form>
       <input
         type="text"
@@ -21,13 +23,14 @@
         "
       />
     </form>
-    <div *ngIf="accountNumberToValidate.length > 0">
+    <div i18n *ngIf="accountNumberToValidate.length > 0">
       Current length:
       {{ accountNumberToValidate | lengthExcludingWhitespace }}
     </div>
     <div id="validation-result">
       <ul>
         <li
+          i18n
           [attr.data-valid]="
             validationResult.has16Characters ? 'true' : 'false'
           "
@@ -35,6 +38,7 @@
           The account number should have 16 characters (excluding whitespace).
         </li>
         <li
+          i18n
           [attr.data-valid]="
             validationResult.startsWithBelgianPrefix ? 'true' : 'false'
           "
@@ -42,6 +46,7 @@
           The account number should start with "BE".
         </li>
         <li
+          i18n
           [attr.data-valid]="
             validationResult.endsWithNumbers ? 'true' : 'false'
           "
@@ -49,6 +54,7 @@
           The account number should end with numbers.
         </li>
         <li
+          i18n
           [attr.data-valid]="
             validationResult.hasValidBbanChecksum ? 'true' : 'false'
           "
@@ -56,6 +62,7 @@
           The account number should have a valid BBAN checksum.
         </li>
         <li
+          i18n
           [attr.data-valid]="
             validationResult.hasValidIbanChecksum ? 'true' : 'false'
           "

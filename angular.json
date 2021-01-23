@@ -4,6 +4,15 @@
   "newProjectRoot": "projects",
   "projects": {
     "iban": {
+      "i18n": {
+        "sourceLocale": "en",
+        "locales": {
+          "fr": {
+            "translation": "src/locale/translations.fr.xlf",
+            "baseHref": "/fr/"
+          }
+        }
+      },
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -23,6 +32,7 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "aot": true,
+            "localize": true,
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
@@ -35,6 +45,14 @@
             ]
           },
           "configurations": {
+            "fr": {
+              "localize": ["fr"],
+              "baseHref": "/fr/"
+            },
+            "en": {
+              "localize": ["en"],
+              "baseHref": "/en/"
+            },
             "production": {
               "fileReplacements": [
                 {
@@ -73,6 +91,12 @@
           "configurations": {
             "production": {
               "browserTarget": "iban:build:production"
+            },
+            "fr": {
+              "browserTarget": "iban:build:fr"
+            },
+            "en": {
+              "browserTarget": "iban:build:en"
             }
           }
         },

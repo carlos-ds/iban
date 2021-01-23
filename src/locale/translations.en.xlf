@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-GB" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="02558294a768b689e2fd9f6c4b2682fcb702f953" datatype="html">
+        <source>
+      Validate a Belgian IBAN
+    </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/iban/iban-validation/iban-validation.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="343095740b170aeb3ba8d8d30a17c7521d7b514a" datatype="html">
+        <source>
+      Current length:
+      <x id="INTERPOLATION" equiv-text="{{ accountNumberToValidate | lengthExcludingWhitespace }}"/>
+    </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/iban/iban-validation/iban-validation.component.html</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="e0c346f12e725cee182c630ecc031eafbc511461" datatype="html">
+        <source>
+          The account number should have 16 characters (excluding whitespace).
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/iban/iban-validation/iban-validation.component.html</context>
+          <context context-type="linenumber">37</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3e9b7a2d8ff9bddb94021022e7063189201d9fac" datatype="html">
+        <source>
+          The account number should start with &quot;BE&quot;.
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/iban/iban-validation/iban-validation.component.html</context>
+          <context context-type="linenumber">45</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="f09bb1ff562ab545cd9a5a55f241d837134b7b65" datatype="html">
+        <source>
+          The account number should end with numbers.
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/iban/iban-validation/iban-validation.component.html</context>
+          <context context-type="linenumber">53</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="f85c3b1b84300fdbcd12f4c176e056d01c0ba64f" datatype="html">
+        <source>
+          The account number should have a valid BBAN checksum.
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/iban/iban-validation/iban-validation.component.html</context>
+          <context context-type="linenumber">61</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="bcd9c23a5a50f3c97fc0dbadbde017f3d7d8c107" datatype="html">
+        <source>
+          The account number should have a valid IBAN checksum.
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/iban/iban-validation/iban-validation.component.html</context>
+          <context context-type="linenumber">69</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2dc45beed450fca51282dd0adb1eefd5baf854c7" datatype="html">
+        <source>
+      Generate a random Belgian IBAN
+    </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/iban/iban-generation/iban-generation.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8914368dd4a5c3a27d83b183c8062b8de1b4afb1" datatype="html">
+        <source>The previous 5 generated IBAN&apos;s on this site were:</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/iban/iban-generation/iban-generation.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="60b01d9b8dc17c80f543eb3347ba297d892b2ecf" datatype="html">
+        <source><x id="INTERPOLATION" equiv-text="{{ iban.value }}"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/iban/iban-generation/iban-generation.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="f5bef16b6215e03ba21ef390f54518771d150169" datatype="html">
+        <source>We&apos;re sorry, but there&apos;s nothing here ...</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/page-not-found/page-not-found.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4a97312406cef5741d712603ec5d7978512f04cd" datatype="html">
+        <source><x id="START_LINK" ctype="x-a" equiv-text="&lt;a&gt;"/>Click here<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/> to go back to the homepage.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/page-not-found/page-not-found.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
