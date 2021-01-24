@@ -1,8 +1,8 @@
 export interface Iban {
   id: number;
-  value: string;
-  format: string;
-  country: string;
+  accountNumber: string;
+  createdAt: string;
+  createdBy: 'MANUAL' | 'GENERATE';
 }
 
 export interface ValidationResult {

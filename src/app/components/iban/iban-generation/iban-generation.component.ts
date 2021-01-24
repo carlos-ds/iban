@@ -24,7 +24,7 @@ export class IbanGenerationComponent implements OnInit {
   generateIban() {
     this.ibanService.create().subscribe((iban) => {
       this.previousIbans = [...iban];
-      this.result = iban[0].value;
+      this.result = iban[0].accountNumber;
     });
   }
 }
