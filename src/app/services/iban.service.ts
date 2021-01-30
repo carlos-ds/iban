@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
 import { Iban, ValidationResult } from '../models/iban.model';
 import { environment } from '../../environments/environment';
 
