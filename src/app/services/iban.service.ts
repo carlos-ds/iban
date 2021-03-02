@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { Iban, ValidationResult } from '../models/iban.model';
 import { environment } from '../../environments/environment';
+import { catchError, map, tap } from 'rxjs/operators';
 
 const httpHeaders = new HttpHeaders({
   'Content-Type': 'application/json',
@@ -33,17 +34,19 @@ export class IbanService {
     };
   }
 
-  get(): Observable<Iban[]> {
-    return this.http.get<Iban[]>(
-      environment.apiUrl + '/?limit=' + numberOfPreviousIbans
-    );
+  getIbans(): Observable<Iban[]> {
+    return this.http
+      .get<Iban[]>(environment.apiUrl + '/?limit=' + numberOfPreviousIbans)
+      .pipe(catchError(this.handleError<Iban[]>('getIbans', [])));
   }
 
-  create(): Observable<Iban[]> {
-    return this.http.get<Iban[]>(environment.apiUrl + '/create');
+  createIban(): Observable<Iban[]> {
+    return this.http
+      .get<Iban[]>(environment.apiUrl + '/create')
+      .pipe(catchError(this.handleError<Iban[]>('createIban', [])));
   }
 
-  validate(accountNumber): Observable<ValidationResult> {
+  validateIban(accountNumber): Observable<ValidationResult> {
     return this.http.post<ValidationResult>(
       `${environment.apiUrl}/validate`,
       JSON.stringify(accountNumber),

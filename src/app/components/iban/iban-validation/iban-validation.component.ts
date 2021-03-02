@@ -19,7 +19,7 @@ export class IbanValidationComponent implements OnInit {
 
   handleChange(event: any) {
     this.ibanService
-      .validate({ accountNumber: event.target.value })
+      .validateIban({ accountNumber: event.target.value })
       .subscribe((data) => {
         this.validationResult = Object.assign({}, data);
       });
