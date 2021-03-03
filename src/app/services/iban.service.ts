@@ -20,9 +20,7 @@ export class IbanService {
   constructor(private http: HttpClient) {}
 
   /**
-   * Source: https://angular.io/tutorial/toh-pt6
-   * Handle Http operation that failed.
-   * Let the app continue.
+   * Generic error handling function. Source: https://angular.io/tutorial/toh-pt6.
    * @param operation - name of the operation that failed
    * @param result - optional value to return as the observable result
    */
@@ -34,9 +32,14 @@ export class IbanService {
     };
   }
 
-  getIbans(): Observable<Iban[]> {
+  getGeneratedIbans(): Observable<Iban[]> {
     return this.http
-      .get<Iban[]>(environment.apiUrl + '/?limit=' + numberOfPreviousIbans)
+      .get<Iban[]>(
+        environment.apiUrl +
+          '/?limit=' +
+          numberOfPreviousIbans +
+          '&createdBy=GENERATION'
+      )
       .pipe(catchError(this.handleError<Iban[]>('getIbans', [])));
   }
 

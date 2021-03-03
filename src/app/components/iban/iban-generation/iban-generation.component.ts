@@ -16,7 +16,7 @@ export class IbanGenerationComponent implements OnInit {
   ngOnInit(): void {
     this.result = 'BE__ ____ ____ ____';
 
-    this.ibanService.getIbans().subscribe((iban) => {
+    this.ibanService.getGeneratedIbans().subscribe((iban) => {
       this.previousIbans = iban;
     });
   }
