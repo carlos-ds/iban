@@ -7,4 +7,6 @@ module.exports = {
   transform: {
     "^.+\\.(ts|tsx)$": "ts-jest",
   },
+  preset: "jest-preset-angular",
+  setupFilesAfterEnv: ["./src/test.ts"],
 };
