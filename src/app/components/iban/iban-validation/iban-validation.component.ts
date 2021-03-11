@@ -8,11 +8,13 @@ import { LengthExcludingWhitespacePipe } from '../../../pipes/length-excluding-w
   templateUrl: './iban-validation.component.html',
   styleUrls: ['./iban-validation.component.scss'],
 })
-export class IbanValidationComponent {
+export class IbanValidationComponent implements OnInit {
   accountNumberToValidate: string;
   validationResult: ValidationResult;
 
-  constructor(private ibanService: IbanService) {
+  constructor(private ibanService: IbanService) {}
+
+  ngOnInit(): void {
     this.accountNumberToValidate = '';
     this.validationResult = {} as ValidationResult;
   }
