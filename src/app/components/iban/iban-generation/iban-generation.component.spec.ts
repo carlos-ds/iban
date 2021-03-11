@@ -93,7 +93,7 @@ describe('IbanGenerationComponent', () => {
   }
 
   it('should show the last 5 IBANs', async () => {
-    const component = await setup(mockIbans, null);
+    await setup(mockIbans, null);
     expect(screen.getByText('BE76 5599 4230 6595')).toBeTruthy();
     expect(screen.getByText('BE67 4652 4188 4787')).toBeTruthy();
     expect(screen.getByText('BE33 4978 4106 8346')).toBeTruthy();
@@ -105,7 +105,7 @@ describe('IbanGenerationComponent', () => {
   });
 
   it('should show the generated IBAN twice after clicking', async () => {
-    const component = await setup(mockIbans, null);
+    await setup(mockIbans, null);
     const generateButton = screen.getByText(/Generate a random Belgian IBAN/i);
     expect(() => {
       screen.getByText('BE62 6501 2926 5661');
