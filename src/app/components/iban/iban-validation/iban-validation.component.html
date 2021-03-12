@@ -9,6 +9,7 @@
         (input)="handleChange($event)"
         maxlength="19"
         autocomplete="off"
+        placeholder="ex. BE30 0000 0000 1111"
         [style.box-shadow]="accountNumberToValidate.length === 0 ? 'none' : ''"
         [attr.data-valid]="
           validationResult.has16Characters &&
