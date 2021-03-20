@@ -1,14 +1,11 @@
 <section id="validate">
   <div class="container">
     <form>
-      <label for="accountNumberToValidate">
-        <h2 style="font-family: 'Bebas Neue', cursive">
-          Validate a Belgian IBAN
-        </h2>
-      </label>
+      <label for="accountNumberToValidate">Validate a Belgian IBAN</label>
       <input
         type="text"
         [(ngModel)]="accountNumberToValidate"
+        id="accountNumberToValidate"
         name="accountNumberToValidate"
         (input)="handleChange($event)"
         maxlength="19"

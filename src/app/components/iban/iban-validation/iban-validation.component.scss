@@ -4,6 +4,14 @@
   border-bottom: 1px solid grey;
 }
 
+label {
+  display: block;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 2rem;
+  font-family: "Bebas Neue", cursive;
+}
+
 input {
   padding-left: 1rem;
   margin-top: 2rem;
