@@ -1,0 +1,20 @@
+name: Test IBAN application
+
+on:
+  push:
+    branches: [develop]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Pull repository into the current pipeline
+      - name: Pull repository
+        uses: actions/checkout@v2
+
+      - name: NPM install
+        run: npm ci
+
+      - name: Run tests
+        run: npm test
