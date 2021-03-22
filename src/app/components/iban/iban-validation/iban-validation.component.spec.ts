@@ -30,7 +30,7 @@ describe('IbanValidationComponent', () => {
     const component = await render(IbanValidationComponent, {
       imports: [FormsModule],
       declarations: [LengthExcludingWhitespacePipe],
-      componentProviders: [
+      providers: [
         {
           provide: IbanService,
           useValue: {
