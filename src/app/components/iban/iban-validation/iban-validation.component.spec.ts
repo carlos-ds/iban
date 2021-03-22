@@ -4,6 +4,8 @@ import { render, screen } from '@testing-library/angular';
 import userEvent from '@testing-library/user-event';
 import { IbanService } from 'src/app/services/iban.service';
 import { of } from 'rxjs';
+import { FormsModule } from '@angular/forms';
+import { LengthExcludingWhitespacePipe } from 'src/app/pipes/length-excluding-whitespaces.pipe';
 
 const mockValidValidationResult: ValidationResult = {
   iban: 'BE62 6501 2926 5661',
@@ -26,6 +28,8 @@ const mockInvalidValidationResult: ValidationResult = {
 describe('IbanValidationComponent', () => {
   async function setup(validationResult: ValidationResult) {
     const component = await render(IbanValidationComponent, {
+      imports: [FormsModule],
+      declarations: [LengthExcludingWhitespacePipe],
       componentProviders: [
         {
           provide: IbanService,
