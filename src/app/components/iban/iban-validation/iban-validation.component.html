@@ -52,14 +52,22 @@
         </li>
         <li
           [attr.data-valid]="
-            validationResult.hasValidBbanChecksum ? 'true' : 'false'
+            validationResult.hasValidBbanChecksum
+              ? validationResult.hasValidBbanChecksum
+                ? 'true'
+                : 'false'
+              : 'unknown'
           "
         >
           The account number should have a valid BBAN checksum.
         </li>
         <li
           [attr.data-valid]="
-            validationResult.hasValidIbanChecksum ? 'true' : 'false'
+            validationResult.has16Characters
+              ? validationResult.hasValidIbanChecksum
+                ? 'true'
+                : 'false'
+              : 'unknown'
           "
         >
           The account number should have a valid IBAN checksum.

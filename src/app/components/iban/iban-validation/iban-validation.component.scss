@@ -34,6 +34,7 @@ input:focus {
 input[data-valid="true"] {
   box-shadow: 0 0 5px green;
 }
+
 input[data-valid="false"] {
   box-shadow: 0 0 5px red;
 }
@@ -46,6 +47,7 @@ input[data-valid="false"] {
   text-align: left;
   list-style: none;
 }
+
 #validation-result ul li[data-valid="true"]:before {
   content: "✓ ";
   color: green;
@@ -53,5 +55,10 @@ input[data-valid="false"] {
 
 #validation-result ul li[data-valid="false"]:before {
   content: "x ";
+  color: red;
+}
+
+#validation-result ul li[data-valid="unknown"]:before {
+  content: "? ";
   color: red;
 }
