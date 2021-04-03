@@ -8,5 +8,5 @@ module.exports = {
     "^.+\\.(ts|tsx)$": "ts-jest",
   },
   preset: "jest-preset-angular",
-  setupFilesAfterEnv: ["./src/test.ts"],
+  setupFilesAfterEnv: ["./src/setup-jest.ts"],
 };
