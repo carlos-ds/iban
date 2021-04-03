@@ -6,7 +6,7 @@
     "start": "node server.js",
     "start_dev": "ng serve",
     "build": "ng build",
-    "test": "jest",
+    "test": "jest --testPathIgnorePatterns=['src/test.ts']",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "heroku-postbuild": "ng build --prod"
