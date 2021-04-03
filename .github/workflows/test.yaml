@@ -2,7 +2,7 @@ name: Test IBAN application
 
 on:
   push:
-    branches: [github-actions]
+    branches: [develop]
 
 jobs:
   build-and-test:
