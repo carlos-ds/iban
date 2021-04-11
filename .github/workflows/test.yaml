@@ -1,4 +1,4 @@
-name: Test IBAN application
+name: Run unit tests, merge develop into master and push
 
 on:
   push:
@@ -18,3 +18,11 @@ jobs:
 
       - name: Run tests
         run: npm test
+
+      - name: Merge develop into master and push
+        run: |
+          git fetch --unshallow
+          git checkout master
+          git pull
+          git merge develop -m "Auto merge dev into master"
+          git push
