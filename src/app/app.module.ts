@@ -8,7 +8,7 @@ import { IbanValidationComponent } from './components/iban/iban-validation/iban-
 import { IbanGenerationComponent } from './components/iban/iban-generation/iban-generation.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -28,7 +28,7 @@ import { LengthExcludingWhitespacePipe } from './pipes/length-excluding-whitespa
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
+    ReactiveFormsModule,
     CommonModule,
     HttpClientModule,
   ],

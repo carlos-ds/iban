@@ -4,14 +4,13 @@
       <label for="accountNumberToValidate">Validate a Belgian IBAN</label>
       <input
         type="text"
-        [(ngModel)]="accountNumberToValidate"
+        [formControl]="accountNumber"
         id="accountNumberToValidate"
         name="accountNumberToValidate"
-        (input)="handleChange($event)"
         maxlength="19"
         autocomplete="off"
         placeholder="ex. BE30 0000 0000 1111"
-        [style.box-shadow]="accountNumberToValidate.length === 0 ? 'none' : ''"
+        [style.box-shadow]="accountNumber.value.length === 0 ? 'none' : ''"
         [attr.data-valid]="
           validationResult.has16Characters &&
           validationResult.startsWithBelgianPrefix &&
@@ -23,9 +22,9 @@
         "
       />
     </form>
-    <div *ngIf="accountNumberToValidate.length > 0">
+    <div *ngIf="accountNumber.value.length > 0">
       Current length:
-      {{ accountNumberToValidate | lengthExcludingWhitespace }}
+      {{ accountNumber.value | lengthExcludingWhitespace }}
     </div>
     <div id="validation-result">
       <ul>
