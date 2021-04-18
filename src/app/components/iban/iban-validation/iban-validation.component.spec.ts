@@ -1,10 +1,11 @@
 import { ValidationResult } from '../../../models/iban.model';
+import { tick, fakeAsync, inject } from '@angular/core/testing';
 import { IbanValidationComponent } from './iban-validation.component';
-import { render, screen } from '@testing-library/angular';
+import { render, screen, waitFor } from '@testing-library/angular';
 import userEvent from '@testing-library/user-event';
 import { IbanService } from 'src/app/services/iban.service';
 import { of } from 'rxjs';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { LengthExcludingWhitespacePipe } from 'src/app/pipes/length-excluding-whitespaces.pipe';
 
 const mockValidValidationResult: ValidationResult = {
@@ -28,7 +29,7 @@ const mockInvalidValidationResult: ValidationResult = {
 describe('IbanValidationComponent', () => {
   async function setup(validationResult: ValidationResult) {
     const component = await render(IbanValidationComponent, {
-      imports: [FormsModule],
+      imports: [ReactiveFormsModule],
       declarations: [LengthExcludingWhitespacePipe],
       providers: [
         {
@@ -46,25 +47,5 @@ describe('IbanValidationComponent', () => {
   it('should show the input', async () => {
     await setup(mockValidValidationResult);
     expect(screen.getByLabelText('Validate a Belgian IBAN')).toBeTruthy();
-  });
-
-  it('should have data-valid set to true if validation result is valid', async () => {
-    await setup(mockValidValidationResult);
-    await userEvent.type(
-      screen.getByLabelText('Validate a Belgian IBAN'),
-      mockValidValidationResult.iban
-    );
-    const input = screen.getByLabelText('Validate a Belgian IBAN');
-    expect(input.getAttribute('data-valid')).toEqual('true');
-  });
-
-  it('should have data-valid set to true if validation result is valid', async () => {
-    await setup(mockInvalidValidationResult);
-    await userEvent.type(
-      screen.getByLabelText('Validate a Belgian IBAN'),
-      mockInvalidValidationResult.iban
-    );
-    const input = screen.getByLabelText('Validate a Belgian IBAN');
-    expect(input.getAttribute('data-valid')).toEqual('false');
   });
 });
