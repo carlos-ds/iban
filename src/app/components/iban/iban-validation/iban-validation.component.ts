@@ -37,7 +37,7 @@ export class IbanValidationComponent implements OnInit, OnDestroy {
 
   validateIbanOnChange() {
     this.accountNumber.valueChanges
-      .pipe(debounceTime(1000), takeUntil(this.destroy$))
+      .pipe(debounceTime(500), takeUntil(this.destroy$))
       .subscribe((value) => {
         this.ibanService
           .validateIban({ accountNumber: value })
