@@ -1,6 +1,6 @@
-import { Iban, ValidationResult } from '../../../models/iban.model';
+import { Iban, ValidationResult } from '../../../models/iban.interface';
 import { IbanGenerationComponent } from './iban-generation.component';
-import { render, screen, fireEvent } from '@testing-library/angular';
+import {render, screen, fireEvent, RenderResult} from '@testing-library/angular';
 import { IbanService } from 'src/app/services/iban.service';
 import { of } from 'rxjs';
 
@@ -47,8 +47,8 @@ const mockValidationResult: ValidationResult = {
 };
 
 describe('IbanGenerationComponent', () => {
-  async function setup(previousIbans: Iban[], accountNumber: string) {
-    const component = await render(IbanGenerationComponent, {
+  async function setup(previousIbans: Iban[], accountNumber: string): Promise<RenderResult<IbanGenerationComponent>> {
+    return await render(IbanGenerationComponent, {
       providers: [
         {
           provide: IbanService,
@@ -88,8 +88,6 @@ describe('IbanGenerationComponent', () => {
         result: accountNumber,
       },
     });
-
-    return component;
   }
 
   it('should show the last 5 IBANs', async () => {

@@ -1,14 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-
-import { Iban } from '../../models/iban.model';
-import { map } from 'rxjs/operators';
-import { Observable } from 'rxjs';
+import { Component } from '@angular/core';
 
 @Component({
-  selector: 'iban',
+  selector: 'app-iban',
   templateUrl: './iban.component.html',
   styleUrls: ['./iban.component.scss'],
 })
 export class IbanComponent {
-  constructor() {}
 }

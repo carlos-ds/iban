@@ -1,8 +1,6 @@
-import { ValidationResult } from '../../../models/iban.model';
-import { tick, fakeAsync, inject } from '@angular/core/testing';
+import { ValidationResult } from '../../../models/iban.interface';
 import { IbanValidationComponent } from './iban-validation.component';
-import { render, screen, waitFor } from '@testing-library/angular';
-import userEvent from '@testing-library/user-event';
+import {render, RenderResult, screen} from '@testing-library/angular';
 import { IbanService } from 'src/app/services/iban.service';
 import { of } from 'rxjs';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -27,8 +25,8 @@ const mockInvalidValidationResult: ValidationResult = {
 };
 
 describe('IbanValidationComponent', () => {
-  async function setup(validationResult: ValidationResult) {
-    const component = await render(IbanValidationComponent, {
+  async function setup(validationResult: ValidationResult): Promise<RenderResult<IbanValidationComponent, IbanValidationComponent>> {
+    return await render(IbanValidationComponent, {
       imports: [ReactiveFormsModule],
       declarations: [LengthExcludingWhitespacePipe],
       providers: [
@@ -40,8 +38,6 @@ describe('IbanValidationComponent', () => {
         },
       ],
     });
-
-    return component;
   }
 
   it('should show the input', async () => {

@@ -1,41 +1,39 @@
 import {
   Component,
-  ElementRef,
   OnDestroy,
-  OnInit,
-  ViewChild,
+  OnInit
 } from '@angular/core';
 import { debounceTime, takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 import { IbanService } from 'src/app/services/iban.service';
-import { ValidationResult } from '../../../models/iban.model';
+import { ValidationResult } from '../../../models/iban.interface';
 import { FormControl } from '@angular/forms';
 
 @Component({
-  selector: 'iban-validation',
+  selector: 'app-iban-validation',
   templateUrl: './iban-validation.component.html',
   styleUrls: ['./iban-validation.component.scss'],
 })
 export class IbanValidationComponent implements OnInit, OnDestroy {
-  destroy$: Subject<boolean> = new Subject<boolean>();
+  private destroy$: Subject<boolean> = new Subject<boolean>();
 
-  accountNumber = new FormControl('');
-  validationResult: ValidationResult;
+  public accountNumber = new FormControl('');
+  public validationResult: ValidationResult;
 
   constructor(private ibanService: IbanService) {
     this.validateIbanOnChange();
   }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.validationResult = {} as ValidationResult;
   }
 
-  ngOnDestroy() {
+  public ngOnDestroy(): void {
     this.destroy$.next(true);
     this.destroy$.unsubscribe();
   }
 
-  validateIbanOnChange() {
+  public validateIbanOnChange(): void {
     this.accountNumber.valueChanges
       .pipe(debounceTime(500), takeUntil(this.destroy$))
       .subscribe((value) => {
