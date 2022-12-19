@@ -4,6 +4,7 @@ import { Observable, of } from 'rxjs';
 import { Iban, ValidationResult } from '../models/iban.interface';
 import { environment } from '../../environments/environment';
 import { catchError } from 'rxjs/operators';
+import {UniqueIdentifierService} from './unique-identifier.service';
 
 @Injectable()
 export class IbanService {
@@ -12,7 +13,10 @@ export class IbanService {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
   };
 
-  constructor(private readonly http: HttpClient) {}
+  constructor(
+    private readonly http: HttpClient,
+    private readonly uniqueIdentifierService: UniqueIdentifierService
+  ) {}
 
   /**
    * Generic error handling function. Source: https://angular.io/tutorial/toh-pt6.
@@ -34,16 +38,17 @@ export class IbanService {
   }
 
   public createIban(): Observable<Iban[]> {
+    const userId = this.uniqueIdentifierService.getUniqueIdentifier();
     return this.http
-      .get<Iban[]>(environment.apiUrl + '/create')
+      .post<Iban[]>(environment.apiUrl + '/create', JSON.stringify({userId}), this.defaultOptions)
       .pipe(catchError(this.handleError<Iban[]>('createIban', [])));
   }
 
-  public validateIban(accountNumber): Observable<ValidationResult> {
-    return this.http.post<ValidationResult>(
-      `${environment.apiUrl}/validate`,
-      JSON.stringify(accountNumber),
-      this.defaultOptions
-    );
+  public validateIban(accountNumber: {accountNumber: string}): Observable<ValidationResult> {
+    const userId = this.uniqueIdentifierService.getUniqueIdentifier();
+    const requestBody = {...accountNumber, userId};
+    return this.http
+      .post<ValidationResult>(`${environment.apiUrl}/validate`, JSON.stringify(requestBody), this.defaultOptions)
+      .pipe(catchError(this.handleError<ValidationResult>('validateIban', null)));
   }
 }

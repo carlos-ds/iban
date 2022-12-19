@@ -14,6 +14,8 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { IbanService } from './services/iban.service';
 import { LengthExcludingWhitespacePipe } from './pipes/length-excluding-whitespaces.pipe';
+import {LocalStorageService} from './services/local-storage.service';
+import {UniqueIdentifierService} from './services/unique-identifier.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,7 @@ import { LengthExcludingWhitespacePipe } from './pipes/length-excluding-whitespa
     CommonModule,
     HttpClientModule,
   ],
-  providers: [IbanService],
+  providers: [IbanService, LocalStorageService, UniqueIdentifierService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
